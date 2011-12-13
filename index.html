@@ -6,6 +6,17 @@
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+    <script type="text/javascript" src="jStorage/jstorage.min.js"></script>
+    <script type="text/javascript" src="binda.js"></script>
+    <script type="text/javascript">
+        $('#heute').live('pageshow', onTodayPageLoad);
+        //$('#comeBtn').button('click', onComeBtn);
+        //$('#goBtn').button('click', goBtn);
+
+
+
+        //^;$.jStorage.deleteKey("binda");
+    </script>
 </head> 
 <body> 
 
@@ -18,9 +29,12 @@
 
 	<div data-role="content">	
         <p>
-        <button href="#" data-role="button" data-theme="e" data-icon="arrow-r">Bin da</button>
-        <button href="#" data-theme="b" data-icon="arrow-l" disabled="true">Bin wieder weg</button>
+        <button onclick="onComeBtn();" data-theme="e" data-icon="arrow-r" id="comeBtn" >Bin da</button>
+        <button onclick="onGoBtn();" data-theme="b" data-icon="arrow-l" id="goBtn" >Bin wieder weg</button>
         </p>		
+        <p >
+        	<h2 id="done" style="display:none;">Puuh was ein anstrengender Tag...</h2>
+        </p>
 	</div><!-- /content -->
 
 </div><!-- /page -->
