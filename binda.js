@@ -76,3 +76,37 @@ function insert_today(data) {
     data[today_as_string()] = { come: null, go : null };
     return data;
 }
+
+function format_time (time) {
+    if (time == null)
+        return "--:--";
+    var t = new Date(time);
+    var h = t.getHours();
+    var m = t.getMinutes();
+    return t.toTimeString().split(" ", 1); //h + ":" + m;
+}
+
+function render_data (data) {
+    console.log(data);
+    var lis = [];
+    for(var p in data) {
+        var comeAndGo = data[p];
+        var div = "<li data-role='list-divider'>" + p + "</li>";
+        var come = "<li>Kommen <p class='ui-li-aside'>" + format_time(comeAndGo.come) + "</p></li>";
+        var go = "<li>Gehen <p class='ui-li-aside'>" + format_time(comeAndGo.go) + "</p></li>";
+        lis.push(div + come + go);
+    }
+    return lis.reverse();
+}
+
+function onGridShown() {
+    var lis = render_data(binda.data);
+    var ul = $('#grid');
+    ul.empty();
+    for(var li in lis) {
+        ul.append(lis[li]);
+    }
+    ul.listview('refresh');
+}
+
+

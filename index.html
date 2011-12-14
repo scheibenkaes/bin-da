@@ -10,11 +10,7 @@
     <script type="text/javascript" src="binda.js"></script>
     <script type="text/javascript">
         $('#heute').live('pageshow', onTodayPageLoad);
-        //$('#comeBtn').button('click', onComeBtn);
-        //$('#goBtn').button('click', goBtn);
-
-
-
+        $('#uebersicht').live('pageshow', onGridShown);
         //^;$.jStorage.deleteKey("binda");
     </script>
 </head> 
@@ -24,7 +20,7 @@
 
 	<div data-role="header">
 		<h1>Heute</h1>
-        <a href="#roster" data-icon="grid" class="ui-btn-right" data-iconpos="notext"></a>
+        <a href="#uebersicht" data-icon="grid" class="ui-btn-right" data-iconpos="notext"></a>
 	</div><!-- /header -->
 
 	<div data-role="content">	
@@ -39,19 +35,13 @@
 
 </div><!-- /page -->
 
-<div data-role="page" id="roster">
+<div data-role="page" id="uebersicht">
     <div data-theme="a" data-role="header">
-        <a href="index.html" data-direction="reverse" data-iconpos="notext" data-theme="c" data-icon="arrow-l"></a>
+        <a href="#heute" data-direction="reverse" data-iconpos="notext" data-theme="c" data-icon="arrow-l"></a>
         <h1>Alle Tage</h1>
     </div>
     <div data-role="content">
-        <ul data-role="listview">
-            <li data-role="list-divider">Heute</li>
-            <li>Kommen <p class="ui-li-aside">12:12</p></li>
-            <li>Gehen</li>
-            <li data-role="list-divider">Gestern</li>
-            <li>Kommen</li>
-            <li>Gehen</li>
+        <ul data-role="listview" id="grid">
         </ul>
     </div>
 </div>
