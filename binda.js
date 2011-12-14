@@ -35,6 +35,7 @@ function setup_buttons() {
     var data = binda.data[today];
     if (data.come == null) { 
         comeBtn.button('enable');
+        goBtn.button('disable');
     } else {
         comeBtn.button('disable');
         goBtn.button('enable');
